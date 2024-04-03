@@ -30,14 +30,12 @@ public class Employee {
         this.pensionPlan = pensionPlan;
     }
 
-    // Getters and setters
 
     @JsonProperty("employeeId")
     public Long getEmployeeId() {
         return employeeId;
     }
 
-    // Other getters and setters
 
     @JsonProperty("employmentDate")
     public LocalDate getEmploymentDate() {
