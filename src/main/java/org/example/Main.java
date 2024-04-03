@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.example.data.Employee;
+import org.example.data.PensionPlan;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -50,7 +51,6 @@ public class Main {
 
     // Task 2: Function to get Monthly Upcoming Enrollees report in JSON format
     private static String getMonthlyUpcomingEnrolleesReport(List<Employee> employees) {
-        // Get current month and next month
         LocalDate currentDate = LocalDate.now();
         LocalDate nextMonthFirstDay = LocalDate.of(currentDate.getYear(), currentDate.getMonth().plus(1), 1);
         LocalDate nextMonthLastDay = nextMonthFirstDay.plusMonths(1).minusDays(1);
@@ -60,8 +60,10 @@ public class Main {
                 .filter(employee -> employee.getEmploymentDate().plusYears(5).isBefore(nextMonthLastDay.plusDays(1)))
                 .filter(employee -> employee.getEmploymentDate().plusYears(5).isAfter(nextMonthFirstDay.minusDays(1)))
                 .filter(employee -> employee.getPensionPlan() == null)
+                .map(employee -> new Employee(employee.getEmployeeId(), employee.getFirstName(), employee.getLastName(), employee.getEmploymentDate(), employee.getYearlySalary(), new PensionPlan(null, 0)))
                 .sorted(Comparator.comparing(Employee::getEmploymentDate))
                 .collect(Collectors.toList());
+
 
         // Convert to JSON
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
