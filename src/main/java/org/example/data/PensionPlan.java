@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
 
-class PensionPlan {
+public class PensionPlan {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate enrollmentDate;
     private double monthlyContribution;
@@ -15,7 +15,6 @@ class PensionPlan {
         this.monthlyContribution = monthlyContribution;
     }
 
-    // Getters and setters
 
     @JsonProperty("enrollmentDate")
     public LocalDate getEnrollmentDate() {
