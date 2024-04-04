@@ -1,0 +1,69 @@
+1.1 Functional Requirements for Advantis Dental Surgery System
+User: Office Manager
+
+-Register new Dentists into the system.
+-Enroll new Patients into the system.
+-Book appointments for Patients with Dentists.
+-Send appointment confirmation emails to Patients.
+
+
+User: Dentist
+
+-Sign in to the system.
+-View a list of all their upcoming appointments.
+-View details of Patients they are scheduled to see.
+
+User: Patient
+
+-Sign in to the system.
+-View a list of their upcoming appointments.
+-View information of the Dentist they are scheduled to see.
+-Request to cancel or change appointments.
+
+
+System Requirements
+
+The system should ensure that a Dentist cannot be assigned more than 5 appointments in a given week.
+The system should not allow a Patient to book a new appointment if they have an outstanding, unpaid bill.
+
+
+1.2 Domain Model UML Class Diagram:
+
+
+Classes:
+
+Dentist
+Attributes:
+dentistID (unique identifier)
+firstName
+lastName
+phoneNumber
+email
+specialization
+
+Patient
+
+Attributes:
+patientID (unique identifier)
+firstName
+lastName
+phoneNumber
+email
+dateOfBirth
+billingAddress
+
+Appointment
+
+Attributes:
+appointmentID (unique identifier)
+date
+time
+
+
+Surgery
+
+Attributes:
+surgeryID (unique identifier)
+name
+address
+phoneNumber
