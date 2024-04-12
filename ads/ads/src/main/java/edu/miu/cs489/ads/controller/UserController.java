@@ -1,6 +1,5 @@
 package edu.miu.cs489.ads.controller;
 
-// UserController.java
 import edu.miu.cs489.ads.model.Users;
 import edu.miu.cs489.ads.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
