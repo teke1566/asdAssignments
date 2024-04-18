@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/dentist")
+@RequestMapping("/adsweb/api/v1/dentist")
 public class DentistController {
     private final DentistService dentistService;
     public DentistController(DentistService dentistService){
         this.dentistService=dentistService;
     }
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<Dentist>> getAllDentist(){
         List<Dentist> dentists=dentistService.getAllDentist();
         return new ResponseEntity<>(dentists, HttpStatus.OK);

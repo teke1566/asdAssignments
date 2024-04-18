@@ -1,10 +1,8 @@
 package edu.miu.cs489.ads.services;
 
 import edu.miu.cs489.ads.model.Address;
-import edu.miu.cs489.ads.model.Users;
 import edu.miu.cs489.ads.repository.AddressRepository;
 import edu.miu.cs489.ads.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

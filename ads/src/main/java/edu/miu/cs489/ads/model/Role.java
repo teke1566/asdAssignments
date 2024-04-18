@@ -1,28 +1,23 @@
 package edu.miu.cs489.ads.model;
 
+import edu.miu.cs489.ads.enums.Roles;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Address {
+@Table(name="role")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    private String street;
-
-    private String city;
-    private String state;
-
-    private String zipCode;
-
-    @OneToOne(mappedBy = "address")
-    private Patient patient;
-
-
+    @Enumerated(EnumType.STRING)
+    private Roles role;
 }

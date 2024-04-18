@@ -19,28 +19,28 @@ public class PatientController {
     public PatientController(PatientService patientService){
         this.patientService=patientService;
     }
-    @GetMapping("/list")
+    @GetMapping()
     public ResponseEntity<List<Patient>> getAllPatients(){
         List<Patient> patientList=patientService.patientList();
         return new ResponseEntity<>(patientList, HttpStatus.OK);
     }
-    @GetMapping("/get/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Patient> getPatientById(@PathVariable Long id){
         Optional<Patient> patientById=patientService.getPatientById(id);
         return patientById.map(value->new ResponseEntity<>(value,HttpStatus.OK))
                 .orElseGet(()->new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-    @PostMapping("/register")
+    @PostMapping()
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient){
         Patient patient1=patientService.createPatient(patient);
         return new ResponseEntity<>(patient1,HttpStatus.CREATED);
     }
-    @PutMapping("/update/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Patient> updatePatient(@PathVariable Long id, @RequestBody Patient updatePatients){
         Patient updatePatient=patientService.patientUpdate(id,updatePatients);
         return new ResponseEntity<>(updatePatient,HttpStatus.OK);
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Patient> deletePatient(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
         patientService.deletePatientById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

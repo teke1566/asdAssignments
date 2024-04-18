@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/appointments")
+@RequestMapping("/adsweb/api/v1/appointments")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

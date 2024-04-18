@@ -1,13 +1,34 @@
+INSERT INTO users (email, name, password)
+VALUES ('admin@gmail.com', 'Dentist', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2'); --123
+INSERT INTO users (email, name, password)
+VALUES ('source@gmail.com', 'abe', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2'); --123
+INSERT INTO users (email, name, password)
+VALUES ('foo@gmail.com', 'Mtek', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2');
+--123
+INSERT INTO role (role)
+VALUES ('OFFICE_MANAGER');
+INSERT INTO role (role)
+VALUES ('PATIENT');
+INSERT INTO role (role)
+VALUES ('DENTIST');
+
+
+INSERT INTO users_role (user_id, role_id)
+VALUES (1, 1);
+INSERT INTO users_role (user_id, role_id)
+VALUES (2, 2);
+INSERT INTO users_role (user_id, role_id)
+VALUES (3, 3);
+
+
+
 -- Insert dummy data into Address table
 INSERT INTO Address (street, city, state, zip_code) VALUES
                                                         ('123 Main St', 'Cityville', 'Stateville', '12345'),
                                                         ('456 Elm St', 'Townville', 'Stateville', '54321'),
                                                         ('789 Oak St', 'Villageville', 'Stateville', '98765');
 
--- Insert dummy data into Users table
-INSERT INTO Users (username, password, address_id) VALUES
-                                                       ('user1', 'password1', 1),
-                                                       ('user2', 'password2', 2);
+
 
 -- Insert dummy data into Dentist table
 INSERT INTO Dentist (first_name, last_name, email, specialization) VALUES
@@ -21,10 +42,7 @@ INSERT INTO Patient (first_name, last_name, email, date_of_birth,address_id) VAL
                                                                       ('Bob', 'Smith', 'bob@example.com', '1985-10-20',2),
                                                                       ('Charlie', 'Brown', 'charlie@example.com', '1978-03-28',3);
 
--- Insert dummy data into Role table
-INSERT INTO Roles (name) VALUES
-                             ('ROLE_ADMIN'),
-                             ('ROLE_USER');
+
 
 -- Insert dummy data into Surgery table
 INSERT INTO Surgery (name, address_id) VALUES

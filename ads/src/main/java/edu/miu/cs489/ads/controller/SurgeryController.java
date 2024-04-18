@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/surgery")
+@RequestMapping("/adsweb/api/v1/surgery")
 public class SurgeryController {
     private final SurgeryService surgeryService;
 

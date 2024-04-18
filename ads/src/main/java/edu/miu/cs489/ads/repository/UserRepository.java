@@ -1,12 +1,11 @@
 package edu.miu.cs489.ads.repository;
 
-import edu.miu.cs489.ads.model.Users;
+import edu.miu.cs489.ads.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByEmail(String email);
 
 }

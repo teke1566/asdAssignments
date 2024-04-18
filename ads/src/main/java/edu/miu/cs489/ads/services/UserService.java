@@ -1,6 +1,6 @@
 package edu.miu.cs489.ads.services;
 
-import edu.miu.cs489.ads.model.Users;
+import edu.miu.cs489.ads.model.User;
 import edu.miu.cs489.ads.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,20 +24,20 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public Optional<Users> getUserById(Long id) {
+    public Optional<User> getUserById(Long id) {
         return userRepository.findById(id);
     }
 
-    public Users createUser(Users user) {
+    public User createUser(User user) {
         return userRepository.save(user);
     }
 
-   public Users updateUser(Long id ,Users users){
-        Users users1=userRepository.findById(id)
+   public User updateUser(Long id , User users){
+        User users1=userRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("Not Found" +id));
         return userRepository.save(users1);
 
